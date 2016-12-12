@@ -14,7 +14,7 @@ function expand_source {
 	exit 1
     fi
 
-    while read line; do
+    while read -r line; do
 	command="$(echo $line | cut -d" " -f1)"
 	if [[ "$command" == "source" || "$command" == "." ]]; then
 	    included_file=$(echo $line | cut -d" " -f 2)
