@@ -19,4 +19,10 @@ function strip_comments_and_whitespace {
     sed -e '/^\s*$/d' -e '/^#.*$/d'
 }
 
-expand_source "${input_file}" | strip_comments_and_whitespace
+function use_minimal_function_header {
+    sed 's/function \(\w*\) {/\1 () {/'
+}
+
+expand_source "${input_file}" |
+    strip_comments_and_whitespace |
+    use_minimal_function_header

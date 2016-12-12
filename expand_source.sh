@@ -20,7 +20,7 @@ function expand_source {
 	    included_file=$(echo $line | cut -d" " -f 2)
 	    expand_source "${included_file}"
 	else
-	    echo $line
+	    echo "$line"
 	fi
     done <"${filename}"
 }
