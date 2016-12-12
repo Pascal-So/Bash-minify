@@ -16,7 +16,7 @@ source read_args.sh
 source expand_source.sh
 
 function strip_comments_and_whitespace {
-    sed -e '/^\s*$/d' -e '/^#.*$/d'
+    sed -e '/^\s*$/d' -e '/^#[^!].*$/d'
 }
 
 function use_minimal_function_header {
