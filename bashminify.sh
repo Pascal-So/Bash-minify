@@ -20,7 +20,7 @@ function strip_comments_and_whitespace {
 }
 
 function use_minimal_function_header {
-    sed 's/function \(\w*\) {/\1 () {/'
+    sed -E 's/function ([a-zA-Z0-9_]*) \{/\1 () {/'
 }
 
 expand_source "${input_file}" |
