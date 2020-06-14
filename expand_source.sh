@@ -5,12 +5,12 @@ function expand_source {
 
 	local filename=$1
 	if [[ ! -f "${filename}" ]]; then
-		print_error "File \"${input_file}\" does not exist."
+		print_error "File \"${filename}\" does not exist."
 		exit 1
 	fi
 
 	if [[ ! -r "${filename}" ]]; then
-		print_error "Can't read file \"${input_file}\"."
+		print_error "Can't read file \"${filename}\"."
 		exit 1
 	fi
 
