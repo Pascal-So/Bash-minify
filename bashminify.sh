@@ -14,6 +14,11 @@ if [[ -z "$input_file" ]]; then
 	exit 1
 fi
 
+if [[ ! -r "$input_file" ]]; then
+	print_error "Permission denied on '$input_file'. Either it does not exist or you do not have permission to read it"
+	exit 1
+fi
+
 source expand_source.sh
 
 function check_eof {
