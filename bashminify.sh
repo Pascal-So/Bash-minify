@@ -5,8 +5,6 @@
 # minify bash scripts
 # Pascal Sommer, 2016
 
-set -u
-
 function print_error {
 	echo -e "\033[0;31mERROR\033[0m:" $@ >&2
 }
