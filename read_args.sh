@@ -23,7 +23,7 @@ else
 	exit 1
 fi
 
-if [[ -z $input_file ]]; then
+if [[ -z "$input_file" ]]; then
 	print_error "No input file given."
 	help
 	exit 1

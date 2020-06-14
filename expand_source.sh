@@ -3,7 +3,7 @@ function expand_source {
 		print_error "Bashminify error in \"expand_source\", nr. of arguments"
 	fi
 
-	local filename=$1
+	local filename=$(realpath "$1")
 	if [[ ! -f "${filename}" ]]; then
 		print_error "File \"${filename}\" does not exist."
 		exit 1
@@ -14,11 +14,12 @@ function expand_source {
 		exit 1
 	fi
 
+	local base_source_dir=$(dirname "$filename")
 	while read -r line; do
 		command="$(echo $line | cut -d" " -f1)"
 		if [[ "$command" == "source" || "$command" == "." ]]; then
 			included_file=$(echo $line | cut -d" " -f 2)
-			expand_source "${included_file}"
+			expand_source "$base_source_dir/$included_file"
 		else
 			echo "$line"
 		fi
