@@ -11,6 +11,7 @@ function print_error {
 input_file=$1
 if [[ -z "$input_file" ]]; then
 	print_error "Expected 1 argument"
+	exit 1
 fi
 
 source expand_source.sh

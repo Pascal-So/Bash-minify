@@ -3,12 +3,9 @@
 declare -A already_expanded
 
 function expand_source {
-	if [[ $# -ne 1 ]]; then
-		print_error "Bashminify error in \"expand_source\", nr. of arguments"
-	fi
-
 	local filename
 	filename=$(realpath "$1")
+
 	if [[ ! -f "${filename}" ]]; then
 		print_error "File \"${filename}\" does not exist."
 		exit 1
